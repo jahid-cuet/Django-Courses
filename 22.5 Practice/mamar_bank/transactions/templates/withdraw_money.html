@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+ {% block content%}
+ 
+     <title>Withdraw Money</title>
+     <script>
+         function validateWithdrawalForm() {
+             var accountNumber = document.getElementById("account_number").value;
+             var amount = document.getElementById("amount").value;
+ 
+             if (accountNumber === "" || amount === "") {
+                 document.getElementById("error_message").innerText = "Please fill in all input fields.";
+                 return false;  // Prevent form submission
+             }
+             return true;  // Allow form submission
+         }
+     </script>
+ </head>
+ <body>
+     <h1><strong class='bg-black text-white mt-10'>Withdraw Money</strong></h1>
+     <div id="error_message" style="color: red;"></div>  <!-- Error message section -->
+     <form class='m-10' method="post" onsubmit="return validateWithdrawalForm()">
+         {% csrf_token %}
+         <label for="account_number" ><strong class='text-white'>Account Number:</strong></label>
+         <input type="text" id="account_number" name="account_number"><br>
+         <label class='mt-2' for="amount"><strong  class='text-white'>Enter Amount   :</strong></label>
+         <input type="text" id="amount" name="amount"><br>
+         <input class='btn btn-warning mx-48 mt-2' type="submit" value="Withdraw">
+     </form>
+ </body>
+ </html>
+ 
+{% endblock %} 

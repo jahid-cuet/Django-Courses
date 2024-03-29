@@ -1,0 +1,26 @@
+{% extends 'base.html' %} {% load crispy_forms_tags %} {% block content %}
+
+<div>
+  <a class="btn btn-primary m-3" href="{% url 'edit_profile' %}">Edit Your Profile</a>
+</div>
+
+<div class="container">
+  <h2 class='text-bg-info mt-5'>Bought cars lists</h2>
+  <div class="row">
+      {% for order in user.borrowinghistory_set.all %}
+          <div class="col-md-4">
+              <div class="card mb-4">
+                  <div class="card-body">
+                      <h5 class="card-title">{{ order.book.title }}</h5>
+                      {% comment %} <p class="card-text">Purchase Date: {{ order.purchase_date }}</p> {% endcomment %}
+                      <!-- Display other information about the order as needed -->
+                  </div>
+              </div>
+          </div>
+      {% endfor %}
+  </div>
+</div>
+
+
+
+{% endblock %}

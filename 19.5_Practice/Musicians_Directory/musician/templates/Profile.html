@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content %}
+{% load crispy_forms_tags %}
+<p>Please see details by Clicking Home Section<p/>
+
+<div class="container">
+  <div class="row justify-content-center tex m-5" style="height: 100vh;"> <!-- Centering the content vertically and horizontally -->
+    <div class="col-md-6"> <!-- Adjust column width as needed -->
+      <ul class="navbar-nav text-center"> <!-- Aligning the content to center -->
+        <li class="nav-item">
+          <a class="nav-link active bg-danger-subtle text-size fs-2 " aria-current="page" href="{% url 'Add_Musician' %}">Add Musician</a> <!-- Applying Bootstrap's text-primary class for appropriate color -->
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active text-success text-white btn btn-info text-size fs-2 m-4" aria-current="page" href="{% url 'Add_Album' %}">Add Album</a> <!-- Applying Bootstrap's text-success class for appropriate color -->
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+  </div>
+
+{% endblock %}
